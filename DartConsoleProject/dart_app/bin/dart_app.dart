@@ -1,8 +1,11 @@
+import 'dart:io';
 import 'package:dart_app/dart_app.dart' as dart_app;
 import '../classes/car.dart';
 import '../classes/employee.dart';
 import '../classes/point.dart';
-import 'dart:math';
+import '../classes/testclass.dart';
+import 'package:dart_app/operators.dart';
+//import 'dart:math';
 
 late String description;
 late String descriptionTwo;
@@ -14,8 +17,6 @@ void main(List<String> arguments) {
   printInteger(number);
   int lineCount = 0;
   // assert(lineCount == null);
-  bool aBool = true;
-  bool anotherBool = false;
 
   List<Car> carList = [
         Car("Everest", 1, false, 0),
@@ -35,7 +36,7 @@ void main(List<String> arguments) {
 
 	//var carList = [car1, car2, car3, car4, car5];
   print("");
-  for(var i = 0; i< carList.length; i++) {
+  for(var i = 0; i< len; i++) {
     print("${carList[i].name} ${carList[i].id} is electric ? ${carList[i].isElectric}");
   }
   print("");
@@ -49,6 +50,10 @@ void main(List<String> arguments) {
   print(employee);
   print("");
 
+  TestClass c = TestClass();   
+  c.disp(); 
+  print("");
+
   sets();
   print("");
 
@@ -58,14 +63,114 @@ void main(List<String> arguments) {
   print(p.distanceFromOrigin);
   print("");
 
+  ifExample();
+  print("");
+
   for(var i = 0; i< carList.length; i++) {
     carList[i].distanceDone += 10;
     print("${carList[i].name} ${carList[i].id} distance : ${carList[i].distanceDone}");
   }
   print("");
 
+  menuSelection();
+
 }
 
+void menuSelection(){
+  print("--- Dart Menu ---");
+  print("1) Bool  2) Switch  3) Const  4) Operators");
+  int? menu = int.parse(stdin.readLineSync()!);
+  switch(menu){
+    case 1: {
+      print("");
+      print("--- Bool ---");
+      bool aBool = true;
+      bool anotherBool = false;
+      checkIfTrue(aBool, anotherBool);
+    }
+    break;
+    case 2: {
+      switchGrade();
+    }
+    break;
+    case 3: {
+      constFunc();
+    }
+    break;
+    case 4: {
+      operators();
+    }
+    break;
+    default: { 
+      print("Invalid choice"); 
+   }
+   break; 
+  }
+}
+
+void constFunc(){
+  print("--- Const ---");
+  const pi = 3.14; 
+  const area = pi*12*12; 
+  print("The output is $area"); 
+}
+
+void switchGrade(){
+  print("--- Switch ---");
+  var gradeList = ["A", "B", "C", "D"];
+  for(var i = 0; i< gradeList.length; i++){
+    switch(gradeList[i]) { 
+      case "A": { 
+        print("${gradeList[i]} it's Excellent");
+        } 
+      break; 
+      case "B": {  
+        print("${gradeList[i]} it's Good"); 
+        } 
+      break; 
+      case "C": {  
+        print("${gradeList[i]} it's Fair"); 
+        } 
+      break; 
+      case "D": {  
+        print("${gradeList[i]} it's Poor"); 
+        } 
+      break; 
+      default: { 
+        print("Invalid choice"); 
+        } 
+      break; 
+    } 
+  }
+}
+
+void ifExample(){
+  var num = 12; 
+   if (num % 2==0) { 
+      print("Even"); 
+   } else { 
+      print("Odd"); 
+   } 
+   print("");
+}
+
+void checkIfTrue(bool aBool, bool anotherBool){
+  if (aBool){
+    print("aBool is True.");
+    if (anotherBool){
+      print("And anotherBool is True too.");
+    } else {
+      print("But anotherBool is False.");
+    }
+  } else {
+    print("aBool is False.");
+    if (anotherBool){
+      print("But at least anotherBool is True.");
+    } else {
+      print("anotherBool is also False.");
+    }
+  }
+}
 
 void printInteger(int aNumber) {
   print('The number is $aNumber.');
