@@ -4,7 +4,13 @@ import '../classes/car.dart';
 import '../classes/employee.dart';
 import '../classes/point.dart';
 import '../classes/testclass.dart';
-import 'package:dart_app/operators.dart';
+import 'package:dart_app/language_tour/operators.dart';
+import 'package:dart_app/language_tour/loops.dart';
+import 'package:dart_app/language_tour/decision_making.dart';
+import 'package:dart_app/language_tour/numbers.dart';
+import 'package:dart_app/language_tour/string_properties.dart';
+import 'package:dart_app/language_tour/lists.dart';
+import 'package:dart_app/main_algorithms.dart';
 //import 'dart:math';
 
 late String description;
@@ -15,7 +21,7 @@ void main(List<String> arguments) {
   print('$description: ${dart_app.calculate()}!');
   var number = 42;
   printInteger(number);
-  int lineCount = 0;
+  // int lineCount = 0;
   // assert(lineCount == null);
 
   List<Car> carList = [
@@ -78,7 +84,7 @@ void main(List<String> arguments) {
 
 void menuSelection(){
   print("--- Dart Menu ---");
-  print("1) Bool  2) Switch  3) Const  4) Operators");
+  print("1) Bool  2) Switch  3) Const  4) Operators  5) Loops  6) Decisions  7) Numbers  8) String Properties  9) Lists  10) Algorithms");
   int? menu = int.parse(stdin.readLineSync()!);
   switch(menu){
     case 1: {
@@ -101,6 +107,31 @@ void menuSelection(){
       operators();
     }
     break;
+    case 5: {
+      loops();
+    }
+    break;
+    case 6: {
+      decision();
+      switchGrade();
+    }
+    break;
+    case 7: {
+      numbersMain();
+    }
+    break;
+    case 8: {
+      stringPropertiesMain();
+    }
+    break;
+    case 9: {
+      listsMain();
+    }
+    break;
+    case 10: {
+      algoMain();
+    }
+    break;
     default: { 
       print("Invalid choice"); 
    }
@@ -116,6 +147,7 @@ void constFunc(){
 }
 
 void switchGrade(){
+  print("");
   print("--- Switch ---");
   var gradeList = ["A", "B", "C", "D"];
   for(var i = 0; i< gradeList.length; i++){
@@ -213,6 +245,7 @@ void interpolation(){
       'String concatenation works even over '
           'line breaks.');
 
+  // ignore: prefer_adjacent_string_concatenation
   var s2 = 'The + operator ' + 'works, as well.';
   assert(s2 == 'The + operator works, as well.');
 }
