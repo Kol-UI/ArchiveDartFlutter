@@ -7,11 +7,12 @@ import 'algorithms/sorted_squared_array.dart';
 import 'algorithms/n_queen.dart';
 import 'algorithms/roman_to_int.dart';
 import 'algorithms/int_to_roman.dart';
+import 'algorithms/validate_subsequence.dart';
 
 void algoMain(){
 
   print("--- Algorithms Menu ---");
-  print("1) Sorted Squared Array  2) N-Queen  3) Decimal to Binary  4) Roman to Int  5) Int to Roman  6) FizzBuzz");
+  print("1) Sorted Squared Array  2) N-Queen  3) Decimal to Binary  4) Roman to Int  5) Int to Roman  6) FizzBuzz  7) Validate Subsequence");
   int? menu = int.parse(stdin.readLineSync()!);
   switch(menu){
     case 1: {
@@ -36,6 +37,10 @@ void algoMain(){
     break;
     case 6: {
       fizzBuzz();
+    }
+    break;
+    case 7: {
+      algorithmValidateSubsequence();
     }
     break;
     default: { 
@@ -200,3 +205,118 @@ void algorithmIntToRoman(){
   }
   
 }
+
+
+void algorithmValidateSubsequence() {
+  List<int> array;
+  List<int> sequence;
+  print("");
+  print("-- Validate Subsequence --");
+
+  print("");
+  print('- Test 1 -');
+  array = [5, 1, 22, 25, 6, -1, 8, 10];
+  stdout.write('Array :');
+  for (var values in array) { 
+    stdout.write(' $values'); 
+  }
+  sequence = [1, 6, -1, 10];
+  stdout.write('Sequence :');
+  for (var values in sequence) { 
+    stdout.write(' $values'); 
+  }
+  checkIsSubSequence(array, sequence);
+  print("");
+
+  print("");
+  print('- Test 2 -');
+  array = [5, 1, 22, 25, 6, -1, 8, 10];
+  stdout.write('Array :');
+  for (var values in array) { 
+    stdout.write(' $values'); 
+  }
+  sequence = [5, -1, 8, 10];
+  stdout.write('Sequence :');
+  for (var values in sequence) { 
+    stdout.write(' $values'); 
+  }
+  checkIsSubSequence(array, sequence);
+  print("");
+
+  print("");
+  print('- Test 3 -');
+  array = [1, 1, 1, 1, 1];
+  stdout.write('Array :');
+  for (var values in array) { 
+    stdout.write(' $values'); 
+  }
+  sequence = [0, 0, 0, 0];
+  stdout.write('Sequence :');
+  for (var values in sequence) { 
+    stdout.write(' $values'); 
+  }
+  checkIsSubSequence(array, sequence);
+  print("");
+
+  print("");
+  print('- Test 4 -');
+  array = [1, 6, -1, 10];
+  stdout.write('Array :');
+  for (var values in array) { 
+    stdout.write(' $values'); 
+  }
+  sequence = [1, 6, -1, 10];
+  stdout.write('Sequence :');
+  for (var values in sequence) { 
+    stdout.write(' $values'); 
+  }
+  checkIsSubSequence(array, sequence);
+  print("");
+
+  print("");
+  print('- Test 5 -');
+  array = [1, 1, 6, 1];
+  stdout.write('Array :');
+  for (var values in array) { 
+    stdout.write(' $values'); 
+  }
+  sequence = [0];
+  stdout.write('Sequence :');
+  for (var values in sequence) { 
+    stdout.write(' $values'); 
+  }
+  checkIsSubSequence(array, sequence);
+  print("");
+
+  print("");
+  print('- Test 6 -');
+  array = [];
+  stdout.write('Array :');
+  for (var values in array) { 
+    stdout.write(' $values'); 
+  }
+  sequence = [0];
+  stdout.write('Sequence :');
+  for (var values in sequence) { 
+    stdout.write(' $values'); 
+  }
+  checkIsSubSequence(array, sequence);
+  print("");
+
+  print("");
+  print('- Test 7 -');
+  array = [1, 1, 6, 1];
+  stdout.write('Array :');
+  for (var values in array) { 
+    stdout.write(' $values'); 
+  }
+  sequence = [];
+  stdout.write('Sequence :');
+  for (var values in sequence) { 
+    stdout.write(' $values'); 
+  }
+  checkIsSubSequence(array, sequence);
+  print("");
+
+  }
+
